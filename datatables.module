@@ -1,5 +1,5 @@
 <?php
-// $Id: datatables.module,v 1.2 2010/05/05 23:06:00 duellj Exp $
+// $Id: datatables.module,v 1.3 2010/05/19 01:07:30 duellj Exp $
 
 /**
  * @file
@@ -49,6 +49,7 @@ function theme_datatable($header, $rows, $attributes = array(), $caption = NULL)
   drupal_add_js(drupal_get_path('module', 'datatables') .'/dataTables/media/js/jquery.dataTables.js');
   drupal_add_js(drupal_get_path('module', 'datatables') .'/js/datatables.js');
   drupal_add_js(array('datatables' => array('#'. $attributes['id'] => $datatable_options)), 'setting');
+  unset($attributes['datatable_options']);
   
   return theme('table', $header, $rows, $attributes, $caption);
 }
